@@ -1,0 +1,35 @@
+aid: graphic-packaging
+name: Graphic Packaging Rules
+description: >-
+  Rules and conventions for tracking Graphic Packaging International, a
+  Fortune 500 manufacturer of paperboard-based consumer packaging. No public
+  APIs are documented at this time; this index records corporate, sustainability,
+  and partner-facing surfaces.
+rules:
+  - id: no-public-api
+    name: No Public API Documented
+    description: >-
+      Graphic Packaging does not publish a public developer API. EDI, customer
+      portals, and supplier integrations are handled through direct business
+      relationships and are not represented as a documented public API surface.
+  - id: contributions-welcome
+    name: Contributions Welcome
+    description: >-
+      If a public API, partner integration spec, or developer portal is
+      identified, contributions to this index are welcome via pull request.
+  - id: corporate-scope
+    name: Corporate and Sustainability Scope
+    description: >-
+      The index tracks corporate identity, sustainability disclosures, and
+      product-segment information for the company as a Fortune 500 packaging
+      enterprise.
+  - id: trademark-respect
+    name: Brand and Trademark Respect
+    description: >-
+      Product names such as CleanClose, Boardio, and PaperSeal are trademarks
+      of Graphic Packaging International. References should preserve trademark
+      attribution.
+maintainer:
+  name: Kin Lane
+  email: kin@apievangelist.com
+modified: '2026-04-28'
