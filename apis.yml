@@ -27,6 +27,8 @@ url: >-
 specificationVersion: '0.19'
 apis: []
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/graphic-packaging-international
   - type: Website
     url: https://www.graphicpkg.com/
   - type: Sustainability
