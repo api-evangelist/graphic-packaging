@@ -27,6 +27,8 @@ url: >-
 specificationVersion: '0.19'
 apis: []
 common:
+  - type: DomainSecurity
+    url: security/graphic-packaging-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/graphic-packaging-international
   - type: Website
@@ -39,6 +41,8 @@ common:
     url: https://www.graphicpkg.com/careers/
   - type: Rules
     url: graphic-packaging-rules.yml
+  - url: http://www.graphicpkg.com/feed
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
