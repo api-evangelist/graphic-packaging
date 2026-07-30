@@ -9,9 +9,20 @@ description: >-
   household, personal care, healthcare, pharmaceuticals, pet care, beauty, and
   e-commerce. No public developer APIs are documented at this time.
 type: Index
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
 position: Producer
 access: Restricted
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/graphic-packaging.png
 tags:
   - Fortune 500
   - Packaging
