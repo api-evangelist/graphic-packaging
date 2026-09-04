@@ -31,7 +31,7 @@ accessModel:
   source: []
   generated: '2026-07-22'
   method: derived
-position: Producer
+position: Producing
 access: Restricted
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/graphic-packaging.png
 tags:
