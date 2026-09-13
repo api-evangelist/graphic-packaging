@@ -1,0 +1,53 @@
+generated: '2026-09-12'
+method: probed
+source: https://careers.graphicpkg.com/api/mcp/jobs
+api: graphic-packaging-career-site-job-query-api
+summary: >-
+  The one unauthenticated API surface on a graphicpkg.com host requires no
+  credential at all. Every documented tool answered anonymously on 2026-09-12
+  with HTTP 200 and no WWW-Authenticate challenge, no API key parameter, and no
+  OAuth metadata anywhere on the host. Everything else Graphic Packaging runs
+  (ODS, ACES, GPI Fiber Furnish Tracker, the Esko WebCenter artwork portal) is a
+  human login wall with no documented programmatic auth.
+schemes:
+  - id: none
+    type: none
+    in: null
+    name: null
+    description: >-
+      No authentication. GET https://careers.graphicpkg.com/api/mcp/jobs?tool=search_jobs
+      returned 200 with a full result set anonymously. CORS is wide open
+      (access-control-allow-origin: *), so the surface is callable from a browser
+      or an agent with no onboarding step.
+    evidence:
+      url: https://careers.graphicpkg.com/api/mcp/jobs?tool=search_jobs&pageSize=2
+      http_status: 200
+      observed: '2026-09-12'
+oauth:
+  present: false
+  authorization_server_metadata: null
+  note: >-
+    /.well-known/oauth-authorization-server and /.well-known/openid-configuration
+    return 404 on www.graphicpkg.com and an HTML shell on careers.graphicpkg.com —
+    no discovery document is served on any host. See
+    well-known/graphic-packaging-well-known.yml.
+gated_surfaces:
+  - name: ODS (order data system)
+    url: https://ods.graphicpkg.com/ods/Account/Login
+    auth: form login, credentials issued by a Graphic Packaging customer service representative
+    programmatic_access_documented: false
+  - name: ACES
+    url: https://aces.graphicpkg.com/login
+    auth: form login
+    programmatic_access_documented: false
+  - name: GPI Fiber Furnish Tracker
+    url: https://gpifiber.graphicpkg.com/
+    auth: form login
+    programmatic_access_documented: false
+  - name: Esko WebCenter (gpeyeview) artwork approval
+    url: https://gpeyeview.graphicpkg.com/WebCenter/
+    auth: form login
+    programmatic_access_documented: false
+    note: >-
+      WebCenter is an Esko product with its own vendor API; nothing Graphic
+      Packaging publishes documents or exposes it, so no contract is claimed here.

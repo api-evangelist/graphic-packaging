@@ -1,0 +1,59 @@
+# Career Site Career Site
+
+> Career Site careers — browse and search open positions.
+
+This career site is purpose-built for AI and LLM readability. Pages are server-rendered as clean semantic HTML with structured data (JSON-LD), so content is fully accessible without JavaScript execution. This is by design — not a limitation. When an AI crawler is detected, a dedicated zero-JS view is served with semantic landmarks, structured job data, and direct links to the Job Query API below.
+
+## Job Query API
+
+Endpoint: https://careers.graphicpkg.com/api/mcp/jobs
+
+All requests are HTTP GET with query parameters. Responses are JSON. Call the endpoint with no parameters to see a self-describing tool manifest.
+
+### Tools
+
+#### search_jobs
+Search and filter job openings.
+- `tool` = `search_jobs` (required)
+- `search` (string, optional): keyword search across title and description
+- `department` (string, optional): filter by department ID — use list_departments to discover IDs
+- `employmentType` (string, optional): filter by type (e.g. "Full Time")
+- `location` (string, optional): city, state, or zip code
+- `page` (number, optional): page number, default 1
+- `pageSize` (number, optional): results per page, default 10
+
+#### get_job
+Get full details for a specific job posting.
+- `tool` = `get_job` (required)
+- `jobId` (string, required): the requisition ID
+
+#### list_departments
+List all departments with their current job counts.
+- `tool` = `list_departments` (required)
+- No additional parameters.
+
+#### list_locations
+List all job locations grouped by state and country with counts.
+- `tool` = `list_locations` (required)
+- No additional parameters.
+
+## Examples
+
+These URLs can be called directly to retrieve JSON data:
+
+- Search all jobs: https://careers.graphicpkg.com/api/mcp/jobs?tool=search_jobs
+- Search by keyword: https://careers.graphicpkg.com/api/mcp/jobs?tool=search_jobs&search=driver
+- Search by location: https://careers.graphicpkg.com/api/mcp/jobs?tool=search_jobs&location=Texas
+- Filter by employment type: https://careers.graphicpkg.com/api/mcp/jobs?tool=search_jobs&employmentType=Full%20Time
+- Paginate results: https://careers.graphicpkg.com/api/mcp/jobs?tool=search_jobs&page=2&pageSize=20
+- List all departments: https://careers.graphicpkg.com/api/mcp/jobs?tool=list_departments
+- List all locations: https://careers.graphicpkg.com/api/mcp/jobs?tool=list_locations
+- Get a specific job: https://careers.graphicpkg.com/api/mcp/jobs?tool=get_job&jobId=REQUISITION_ID
+- View API manifest: https://careers.graphicpkg.com/api/mcp/jobs
+
+## Links
+
+- [Home](https://careers.graphicpkg.com/)
+- [Sitemap](https://careers.graphicpkg.com/sitemap.xml)
+- [Job Query API](https://careers.graphicpkg.com/api/mcp/jobs)
+- [LLM Documentation](https://careers.graphicpkg.com/llms.txt)

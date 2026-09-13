@@ -1,0 +1,16 @@
+generated: '2026-09-12'
+method: generated
+source: >-
+  Generated from live probes of the Graphic Packaging careers job query API.
+  Graphic Packaging publishes no skills, no AGENTS.md and no OpenAPI; this is the
+  only surface in the record with verified operations to ground a skill in.
+skills:
+  - name: graphic-packaging-find-open-jobs
+    file: graphic-packaging-find-open-jobs.md
+    api: graphic-packaging-career-site-job-query-api
+    description: >-
+      Search and read Graphic Packaging's open job requisitions over the
+      unauthenticated careers job query API, including the department-id and
+      silent-zero gotchas.
+    operations: [search_jobs, get_job, list_departments, list_locations]
+    method: generated

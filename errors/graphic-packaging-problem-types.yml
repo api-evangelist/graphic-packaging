@@ -1,0 +1,60 @@
+generated: '2026-09-12'
+method: probed
+source: https://careers.graphicpkg.com/api/mcp/jobs
+api: graphic-packaging-career-site-job-query-api
+format: bespoke
+format_note: >-
+  NOT RFC 9457. The surface returns application/json with a flat
+  {"error": "<human sentence>"} body and no type, title, status, detail or
+  instance member, and no application/problem+json content type. There is no
+  machine-stable error code, so a client can only match on prose.
+envelope:
+  content_type: application/json
+  fields:
+    - name: error
+      type: string
+      description: Human-readable message. The only field present on a failure.
+  machine_code: null
+problem_types:
+  - id: unknown-tool
+    http_status: 400
+    message: 'Unknown tool "<value>". Available: search_jobs, get_job, list_departments, list_locations'
+    cause: The `tool` query parameter is missing or names an operation that does not exist.
+    remediation: >-
+      Pass tool=search_jobs, get_job, list_departments or list_locations. The
+      message enumerates the valid set, which doubles as a discovery affordance.
+    evidence:
+      url: https://careers.graphicpkg.com/api/mcp/jobs?tool=bogus
+      http_status: 400
+      observed: '2026-09-12'
+  - id: missing-required-parameter
+    http_status: 400
+    message: jobId parameter is required
+    cause: A tool was called without one of its required parameters (observed on get_job).
+    remediation: Supply the required parameter; requisition IDs come from search_jobs results.
+    evidence:
+      url: https://careers.graphicpkg.com/api/mcp/jobs?tool=get_job
+      http_status: 400
+      observed: '2026-09-12'
+  - id: method-not-allowed
+    http_status: 405
+    message: null
+    cause: >-
+      Any method other than GET/OPTIONS. A POST of a JSON-RPC tools/list body —
+      the MCP handshake the /api/mcp/ path implies — returns 405 with an empty
+      body.
+    remediation: Use GET with query parameters. This endpoint is not an MCP server.
+    evidence:
+      url: https://careers.graphicpkg.com/api/mcp/jobs
+      method: POST
+      http_status: 405
+      observed: '2026-09-12'
+not_observed:
+  - 401
+  - 403
+  - 429
+  - 500
+note: >-
+  Only the failures reachable from an anonymous client are recorded. No 401/403
+  exists because the surface has no auth, and no 429 was observed because no rate
+  limit is signalled. Nothing here is inferred from documentation — there is none.

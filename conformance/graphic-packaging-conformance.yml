@@ -1,0 +1,48 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.graphicpkg.com/customer-resources/
+note: >-
+  Graphic Packaging is a paperboard packaging manufacturer, not a software
+  vendor. It publishes no OpenAPI, no OAuth surface and no API-protocol
+  conformance claims, so the API-side conformance list is empty rather than
+  invented. What it does publish, on its customer resources pages, is third-party
+  chain-of-custody and recycled-content certification for the physical product —
+  the compliance regime that actually governs its market. Those are recorded
+  here with the exact page that carries each claim.
+api_conformance: []
+api_conformance_note: >-
+  No machine-readable contract exists to assert oauth2, oidc, odata, json:api,
+  rfc9457, pagination or idempotency conformance against. The one unauthenticated
+  JSON surface on a graphicpkg.com host (the careers job query API) is operated by
+  the AppVault career-site platform, uses a bespoke {"error": "..."} envelope
+  rather than RFC 9457, and publishes no conformance statement of its own.
+domain_standards:
+  - id: fsc-chain-of-custody
+    name: FSC Chain of Custody (Forest Stewardship Council)
+    conforms: true
+    kind: product-certification
+    evidence: https://www.graphicpkg.com/customer-resources/fsc-chain-of-custody-certification/
+    http_status: 200
+  - id: pefc-chain-of-custody
+    name: PEFC Chain of Custody (Programme for the Endorsement of Forest Certification)
+    conforms: true
+    kind: product-certification
+    evidence: https://www.graphicpkg.com/customer-resources/pefc-chain-of-custody-certification/
+    http_status: 200
+  - id: rpa-recycled-content
+    name: RPA (Recycled Paperboard Alliance) recycled content certification
+    conforms: true
+    kind: product-certification
+    evidence: https://www.graphicpkg.com/customer-resources/rpa-certification/
+    http_status: 200
+regulatory:
+  - id: eu-ppwr
+    name: EU Packaging and Packaging Waste Regulation (PPWR)
+    conforms: null
+    kind: regulatory-regime
+    note: >-
+      Graphic Packaging writes about PPWR readiness on its own blog but publishes
+      no conformance statement, so this is recorded as a regime it operates under,
+      not as a claim.
+    evidence: https://www.graphicpkg.com/resources/unwrapping-ppwr-legislation-whats-next-for-food-packaging/
+    http_status: 200

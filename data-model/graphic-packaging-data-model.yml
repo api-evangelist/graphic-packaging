@@ -1,0 +1,97 @@
+generated: '2026-09-12'
+method: probed
+source: >-
+  Field names read directly off live responses from
+  https://careers.graphicpkg.com/api/mcp/jobs (get_job, search_jobs,
+  list_departments, list_locations) on 2026-09-12. No schema is published; types
+  are inferred from observed values and marked as such.
+api: graphic-packaging-career-site-job-query-api
+note: >-
+  There is no OpenAPI, no JSON Schema and no published object reference for this
+  surface, so this graph is an honest observation of what the endpoint returned,
+  not a transcription of a contract. Only fields actually seen in a response are
+  listed.
+entities:
+  - name: Job
+    id_field: requisitionId
+    id_note: >-
+      Numeric-string requisition id assigned upstream by SAP SuccessFactors; the
+      same id appears in the applyUrl as career_job_req_id.
+    fields:
+      - {name: requisitionId, type: string, observed: '14329'}
+      - {name: client, type: string, observed: Graphic Packaging International}
+      - {name: title, type: string}
+      - {name: description, type: string, format: html}
+      - name: department
+        type: string
+        note: 'Human label, e.g. Manufacturing & Operations'
+      - name: departmentId
+        type: string
+        note: 'Numeric id; the value the department filter accepts'
+      - {name: employmentType, type: string, observed: Standard}
+      - {name: datePosted, type: string, format: date}
+      - name: applyUrl
+        type: string
+        format: uri
+        note: 'Leaves the API for SAP SuccessFactors'
+      - {name: attributes, type: object}
+      - {name: recruiterAssigned, type: string}
+      - {name: address, type: string}
+      - {name: city, type: string}
+      - {name: state, type: string}
+      - {name: zipCode, type: string}
+      - {name: country, type: string}
+      - {name: salaryMin, type: number}
+      - {name: salaryMax, type: number}
+      - {name: salRateType, type: string}
+      - {name: brandId, type: string}
+      - {name: createdAt, type: string, format: date-time}
+      - {name: updatedAt, type: string, format: date-time}
+    returned_by: [search_jobs, get_job]
+    search_projection: >-
+      search_jobs returns a reduced projection — requisitionId, title, department,
+      location (a flattened "City, ST, USA" string that does not exist as a field
+      on the full record), employmentType, datePosted, applyUrl and a truncated
+      description. The address/city/state/zipCode/country, salary, brand and
+      timestamp fields only appear via get_job.
+  - name: Department
+    id_field: id
+    fields:
+      - {name: id, type: string}
+      - name: name
+        type: string
+        note: 'Observed identical to id on every row — no human label is exposed here'
+      - {name: jobCount, type: integer}
+    returned_by: [list_departments]
+  - name: LocationRollup
+    id_field: null
+    fields:
+      - name: states
+        type: array
+        note: 'Array of objects shaped {state, jobCount}'
+      - name: countries
+        type: array
+        note: 'Array of objects shaped {country, jobCount}'
+    returned_by: [list_locations]
+    note: An aggregate view, not an addressable entity — there is no get_location.
+relationships:
+  - from: Job
+    to: Department
+    kind: belongs_to
+    via: departmentId
+    confidence: high
+    note: departmentId on a Job matches Department.id returned by list_departments.
+  - from: Job
+    to: LocationRollup
+    kind: belongs_to
+    via: state / country
+    confidence: medium
+    note: >-
+      Aggregation only. Job.state and Job.country roll up into the
+      list_locations counts; there is no location identifier to join on.
+external_references:
+  - target: SAP SuccessFactors requisition
+    via: applyUrl (career55.sapsf.eu?company=graphicpac&career_job_req_id=<requisitionId>)
+    note: >-
+      The system of record for these postings is SAP SuccessFactors. This API is a
+      read projection of it published by the AppVault career-site platform.

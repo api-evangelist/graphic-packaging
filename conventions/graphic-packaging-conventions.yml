@@ -1,0 +1,98 @@
+generated: '2026-09-12'
+method: probed
+source: >-
+  Live probes of https://careers.graphicpkg.com/api/mcp/jobs plus the published
+  llms.txt at https://careers.graphicpkg.com/llms.txt (saved verbatim to
+  llms/graphic-packaging-llms.txt)
+api: graphic-packaging-career-site-job-query-api
+scope_note: >-
+  These conventions describe the ONE callable surface on a graphicpkg.com host.
+  Graphic Packaging itself publishes no API design guide, style guide or
+  developer conventions, because it publishes no developer program.
+auth:
+  style: none
+  detail: No credential required; CORS open. See authentication/graphic-packaging-authentication.yml.
+operation_dispatch:
+  style: query-parameter-RPC
+  detail: >-
+    Operations are not paths. A single endpoint dispatches on ?tool=<name>, which
+    is why there is exactly one path and four operations. The response echoes the
+    selected tool in a top-level "tool" field.
+pagination:
+  style: page-number
+  params:
+    - name: page
+      default: 1
+    - name: pageSize
+      default: 10
+  response_fields:
+    - totalCount
+    - page
+    - pageSize
+  cursor: null
+  detail: Offset/page pagination on search_jobs only. No link headers, no cursors, no max pageSize documented.
+response_envelope:
+  success:
+    fields: [tool, results, totalCount, page, pageSize, summary]
+    detail: >-
+      The envelope is not uniform across the four tools. search_jobs returns
+      results[] plus totalCount/page/pageSize; get_job returns a singular
+      "result" object; list_departments returns results[] with totalCount but no
+      paging fields; list_locations returns "results" as an OBJECT
+      ({states:[...], countries:[...]}) rather than an array. A client cannot
+      write one parser for all four. Every response does carry a "summary"
+      sentence ("Found 229 jobs"), which is an explicitly agent-oriented touch.
+  error:
+    fields: [error]
+    detail: See errors/graphic-packaging-problem-types.yml. Not RFC 9457.
+filtering:
+  params: [search, department, employmentType, location]
+  detail: >-
+    Free-text search plus exact filters. The department filter takes a numeric
+    ID and works (department=27187 returned 167 of 229 jobs), but list_departments
+    is close to useless as a lookup: it returns {"id":"27187","name":"27187"} for
+    every row, so the human-readable label ("Manufacturing & Operations") never
+    appears in the department list. Filtering by that label returns 0 results. A
+    caller has to read departmentId off an individual job record via get_job to
+    learn what a department ID means. Recorded as observed, not as documentation.
+field_expansion:
+  supported: false
+sparse_fields:
+  supported: false
+metadata:
+  supported: false
+request_id_tracing:
+  header: x-vercel-id
+  detail: >-
+    No first-party request id. The platform's x-vercel-id is the only correlation
+    handle a caller gets, and it is a CDN artifact, not a supported contract.
+versioning:
+  scheme: none
+  detail: No version in the path, no version header, no dated version parameter. Breaking changes would be silent.
+rate_limit_signaling:
+  headers: []
+  detail: None. See rate-limits/graphic-packaging-rate-limits.yml.
+caching:
+  cache_control: 'public, max-age=60, s-maxage=120'
+  etag: true
+  detail: Conditional requests are viable; the llms.txt itself is served with a strong ETag.
+idempotency:
+  coverage: na
+  mechanism: null
+  header: null
+  scope: []
+  detail: >-
+    na, not none. The surface is read-only — four GET tools, no create, update or
+    delete of any kind — so there is no mutating operation for a replay guard to
+    protect. Recording this as "none" would score a read-only API as if it had
+    lost protection it never needed.
+dry_run_mode:
+  supported: na
+  detail: Read-only surface; there is no write to rehearse.
+reversibility:
+  grade: na
+  detail: >-
+    na. No write surface exists, so no action taken through this API can need
+    taking back. Every tool is a GET that returns job data; there is no cancel,
+    refund, void, undo, restore or delete to document, and no window to state.
+  write_surfaces: []

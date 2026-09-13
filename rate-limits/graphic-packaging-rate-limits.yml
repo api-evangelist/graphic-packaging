@@ -1,0 +1,24 @@
+generated: '2026-09-12'
+method: probed
+source: https://careers.graphicpkg.com/api/mcp/jobs
+limit_count: 0
+note: >-
+  No rate limit is published and none is signalled at runtime. Live responses on
+  2026-09-12 carried no X-RateLimit-*, no RateLimit-*, and no Retry-After header;
+  there is no docs page stating a quota because there is no developer program.
+  An honest zero: an agent calling this surface has no way to know what its budget
+  is until it is cut off.
+observed_headers:
+  request: https://careers.graphicpkg.com/api/mcp/jobs?tool=search_jobs
+  http_status: 200
+  rate_limit_headers: []
+  caching_headers:
+    cache-control: 'public, max-age=60, s-maxage=120'
+    x-vercel-cache: HIT/MISS
+  note: >-
+    The only throttling signal present is edge caching (Vercel, 60s browser /
+    120s shared), which limits origin load rather than the caller.
+limits: []
+exhaustion:
+  status_code: null
+  documented: false

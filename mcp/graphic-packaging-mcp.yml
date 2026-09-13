@@ -1,0 +1,44 @@
+generated: '2026-09-12'
+method: probed
+source: https://careers.graphicpkg.com/api/mcp/jobs
+status: none
+finding: >-
+  Graphic Packaging ships no MCP server. This file exists to record a specific
+  false positive, because the only machine-readable surface in the record sits at
+  a path named /api/mcp/jobs and publishes a "tool" vocabulary — and would be read
+  by a name-matching harvester as a hosted MCP server. It is not one. A POST of
+  {"jsonrpc":"2.0","id":1,"method":"tools/list"} with
+  Accept: application/json, text/event-stream returned HTTP 405 Method Not
+  Allowed with an empty body; the endpoint advertises
+  access-control-allow-methods: GET, OPTIONS. It is a plain HTTP GET query API
+  that borrows MCP's vocabulary, dispatching on a ?tool= parameter.
+  No initialize, no tools/list, no JSON-RPC, no SSE, no inputSchema.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: none
+  verified: probed
+probe:
+  - url: https://careers.graphicpkg.com/api/mcp/jobs
+    method: POST
+    body: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+    http_status: 405
+    observed: '2026-09-12'
+  - url: https://careers.graphicpkg.com/api/mcp/jobs
+    method: GET
+    http_status: 200
+    result: >-
+      Self-describing manifest naming itself "AppVault Career Site MCP Jobs API"
+      with four tools (search_jobs, get_job, list_departments, list_locations),
+      each carrying a flat params[] list of names with no types and no schemas.
+pointer_note: >-
+  No type: MCPServer pointer is wired in apis.yml, deliberately. Emitting one
+  would assert an agent surface that does not answer the protocol, which is worth
+  17 points across mcp_server_present and the agent-readiness mcp_server
+  dimension. The tool names are real; the protocol is not.
+ownership_note: >-
+  Even if it did speak MCP, the server would belong to AppVault, the career-site
+  platform tenanted on careers.graphicpkg.com, not to Graphic Packaging — the
+  manifest says so in its own name field.

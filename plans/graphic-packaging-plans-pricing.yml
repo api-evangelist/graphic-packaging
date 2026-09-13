@@ -1,0 +1,19 @@
+generated: '2026-09-12'
+method: searched
+source: https://www.graphicpkg.com/
+plan_count: 0
+note: >-
+  Graphic Packaging sells paperboard packaging under negotiated commercial
+  contracts; it publishes no pricing page, no plans, and no API pricing of any
+  kind. The one public API surface on a graphicpkg.com host (the AppVault-operated
+  careers job query API) is free and unmetered with no plan attached. Recorded as
+  an explicit zero rather than omitted — there is nothing to price, not a page we
+  failed to find.
+plans: []
+evidence:
+  - url: https://www.graphicpkg.com/
+    http_status: 200
+    note: No pricing or plans entry in the site navigation or the page sitemap (161 URLs).
+  - url: https://www.graphicpkg.com/page-sitemap.xml
+    http_status: 200
+    note: No /pricing, /plans or developer pricing page exists.

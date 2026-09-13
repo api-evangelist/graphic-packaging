@@ -1,0 +1,108 @@
+generated: '2026-09-12'
+method: probed
+source: >-
+  Direct HTTPS probes of the named /.well-known/ path list on every host this
+  record knows: the registrable domain and www, the careers API host, and the
+  four login-gated customer/supplier portals surfaced by search.
+note: >-
+  No host serves any well-known document. Every 200 recorded below returned the
+  host's ordinary HTML page (an SPA or portal catch-all answering 200 for any
+  unknown path), not a document — those are misses, not hits. Because nothing
+  real was served, this repo deliberately carries NO WellKnown and NO SecurityTxt
+  pointer in apis.yml. Graphic Packaging does publish a vulnerability disclosure
+  policy, but as an ordinary web page rather than an RFC 9116 security.txt; it is
+  recorded in security/graphic-packaging-vulnerability-disclosure.yml.
+hosts:
+  - host: www.graphicpkg.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/agent.json
+        status: 404
+  - host: careers.graphicpkg.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        result: html-shell
+        note: SPA catch-all returned the career site HTML, not a security.txt. Treated as a miss.
+      - path: /.well-known/openid-configuration
+        status: 200
+        result: html-shell
+        note: SPA catch-all returned HTML. Treated as a miss.
+      - path: /.well-known/api-catalog
+        status: 200
+        result: html-shell
+        note: SPA catch-all returned HTML. Treated as a miss.
+      - path: /.well-known/agent-card.json
+        status: 200
+        result: html-shell
+        note: SPA catch-all returned HTML, not an AgentCard object. Treated as a miss.
+  - host: ods.graphicpkg.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: aces.graphicpkg.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 200
+        result: html-shell
+        note: Portal catch-all returned the ACES login HTML. Treated as a miss.
+      - path: /.well-known/api-catalog
+        status: 200
+        result: html-shell
+        note: Portal catch-all returned the ACES login HTML. Treated as a miss.
+  - host: gpifiber.graphicpkg.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 200
+        result: html-shell
+        note: Furnish Tracker login page returned for every unknown path. Treated as a miss.
+      - path: /.well-known/openid-configuration
+        status: 200
+        result: html-shell
+      - path: /.well-known/api-catalog
+        status: 200
+        result: html-shell
+      - path: /.well-known/agent-card.json
+        status: 200
+        result: html-shell
+  - host: gpeyeview.graphicpkg.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
+  - host: investors.graphicpkg.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/agent-card.json
+        status: 404
