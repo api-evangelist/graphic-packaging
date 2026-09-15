@@ -1,19 +1,14 @@
 aid: graphic-packaging
 name: Graphic Packaging
-description: >-
-  Graphic Packaging International is a Fortune 500 global manufacturer of
-  sustainable, paperboard-based consumer packaging. Products include folding
-  cartons, multipack cartons, foodservice packaging (cups, lids, to-go
-  containers), microwave and ovenable packaging, paperboard canisters, and
-  packaging machinery. Markets served include food, beverage, foodservice,
-  household, personal care, healthcare, pharmaceuticals, pet care, beauty, and
-  e-commerce. Graphic Packaging publishes no developer program, no API
-  reference and no machine-readable contract; its digital surfaces for
-  customers and suppliers (ODS order data, ACES, GPI Fiber Furnish Tracker and
-  the Esko WebCenter artwork portal) all sit behind logins. The one
-  unauthenticated JSON surface on a graphicpkg.com host is the careers site job
-  query API, which is a tenant of the AppVault career-site platform rather than
-  a Graphic Packaging product.
+description: Graphic Packaging International is a Fortune 500 global manufacturer of sustainable, paperboard-based
+  consumer packaging. Products include folding cartons, multipack cartons, foodservice packaging (cups,
+  lids, to-go containers), microwave and ovenable packaging, paperboard canisters, and packaging machinery.
+  Markets served include food, beverage, foodservice, household, personal care, healthcare, pharmaceuticals,
+  pet care, beauty, and e-commerce. Graphic Packaging publishes no developer program, no API reference
+  and no machine-readable contract; its digital surfaces for customers and suppliers (ODS order data,
+  ACES, GPI Fiber Furnish Tracker and the Esko WebCenter artwork portal) all sit behind logins. The one
+  unauthenticated JSON surface on a graphicpkg.com host is the careers site job query API, which is a
+  tenant of the AppVault career-site platform rather than a Graphic Packaging product.
 type: Index
 deliveryModel:
   model: unknown
@@ -41,103 +36,101 @@ position: Producing
 access: Restricted
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/graphic-packaging.png
 tags:
-  - Fortune 500
-  - Packaging
-  - Paperboard
-  - Sustainability
-  - Manufacturing
-  - Consumer Packaging
-  - Food Service
+- Fortune 500
+- Packaging
+- Paperboard
+- Sustainability
+- Manufacturing
+- Consumer Packaging
+- Food Service
 tags_raw:
-  - Fortune 500
-  - Packaging
-  - Paperboard
-  - Sustainability
-  - Manufacturing
-  - Consumer Packaging
-  - Foodservice
+- Fortune 500
+- Packaging
+- Paperboard
+- Sustainability
+- Manufacturing
+- Consumer Packaging
+- Foodservice
 created: '2026-03-21'
 modified: '2026-09-12'
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/graphic-packaging/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/graphic-packaging/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
-  - aid: graphic-packaging-career-site-job-query-api
-    name: Graphic Packaging Career Site Job Query API
-    description: >-
-      Read-only HTTP JSON API serving Graphic Packaging International's open job
-      requisitions from careers.graphicpkg.com. Four tools — search_jobs,
-      get_job, list_departments and list_locations — are selected with a `tool`
-      query parameter and return JSON; 229 open requisitions were returned
-      anonymously on 2026-09-12. No authentication is required and CORS is open
-      (access-control-allow-origin *). OPERATOR NOTE: this is not a Graphic
-      Packaging product API. The manifest self-identifies as the "AppVault
-      Career Site MCP Jobs API", the site is served from Vercel, and the apply
-      links resolve to SAP SuccessFactors (career55.sapsf.eu,
-      company=graphicpac) — so the contract belongs to the AppVault career-site
-      platform, tenanted under a Graphic Packaging hostname with Graphic
-      Packaging data. Despite the /api/mcp/ path it does NOT speak MCP JSON-RPC:
-      POST tools/list returns HTTP 405.
-    humanURL: https://careers.graphicpkg.com/
-    baseURL: https://careers.graphicpkg.com/api/mcp/jobs
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/graphic-packaging.png
-    tags:
-      - Jobs
-      - Careers
-      - Recruiting
-    properties:
-      - type: LLMsTxt
-        url: llms/graphic-packaging-llms.txt
-      - type: Documentation
-        url: https://careers.graphicpkg.com/llms.txt
-      - type: Authentication
-        url: authentication/graphic-packaging-authentication.yml
-      - type: RateLimits
-        url: rate-limits/graphic-packaging-rate-limits.yml
-      - type: ErrorCatalog
-        url: errors/graphic-packaging-problem-types.yml
-      - type: Conventions
-        url: conventions/graphic-packaging-conventions.yml
-      - type: DataModel
-        url: data-model/graphic-packaging-data-model.yml
-      - type: AgentSkill
-        url: skills/_index.yml
+- aid: graphic-packaging:graphic-packaging-career-site-job-query-api
+  name: Graphic Packaging Career Site Job Query API
+  description: 'Read-only HTTP JSON API serving Graphic Packaging International''s open job requisitions
+    from careers.graphicpkg.com. Four tools — search_jobs, get_job, list_departments and list_locations
+    — are selected with a `tool` query parameter and return JSON; 229 open requisitions were returned
+    anonymously on 2026-09-12. No authentication is required and CORS is open (access-control-allow-origin
+    *). OPERATOR NOTE: this is not a Graphic Packaging product API. The manifest self-identifies as the
+    "AppVault Career Site MCP Jobs API", the site is served from Vercel, and the apply links resolve to
+    SAP SuccessFactors (career55.sapsf.eu, company=graphicpac) — so the contract belongs to the AppVault
+    career-site platform, tenanted under a Graphic Packaging hostname with Graphic Packaging data. Despite
+    the /api/mcp/ path it does NOT speak MCP JSON-RPC: POST tools/list returns HTTP 405.'
+  humanURL: https://careers.graphicpkg.com/
+  baseURL: https://careers.graphicpkg.com/api/mcp/jobs
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/graphic-packaging.png
+  tags:
+  - Job
+  - Careers
+  - Recruiting
+  tags_raw:
+  - Jobs
+  - Careers
+  - Recruiting
+  properties:
+  - type: LLMsTxt
+    url: llms/graphic-packaging-llms.txt
+  - type: Documentation
+    url: https://careers.graphicpkg.com/llms.txt
+  - type: Authentication
+    url: authentication/graphic-packaging-authentication.yml
+  - type: RateLimits
+    url: rate-limits/graphic-packaging-rate-limits.yml
+  - type: ErrorCatalog
+    url: errors/graphic-packaging-problem-types.yml
+  - type: Conventions
+    url: conventions/graphic-packaging-conventions.yml
+  - type: DataModel
+    url: data-model/graphic-packaging-data-model.yml
+  - type: AgentSkill
+    url: skills/_index.yml
 common:
-  - type: DomainSecurity
-    url: security/graphic-packaging-domain-security.yml
-  - type: LinkedIn
-    url: https://www.linkedin.com/company/graphic-packaging-international
-  - type: Website
-    url: https://www.graphicpkg.com/
-  - type: Sustainability
-    url: https://www.graphicpkg.com/sustainability/
-  - type: Investors
-    url: https://investors.graphicpkg.com/
-  - type: Careers
-    url: https://www.graphicpkg.com/careers/
-  - type: Rules
-    url: graphic-packaging-rules.yml
-  - type: Blog
-    url: https://www.graphicpkg.com/feed/
-  - type: Security
-    url: https://www.graphicpkg.com/disclosures-and-company-policies/vulnerability-disclosure-policy/
-  - type: VulnerabilityDisclosure
-    url: security/graphic-packaging-vulnerability-disclosure.yml
-  - type: TermsOfService
-    url: https://www.graphicpkg.com/terms-of-use/
-  - type: PrivacyPolicy
-    url: https://www.graphicpkg.com/privacy-rights-policies/global-privacy/
-  - type: Support
-    url: https://www.graphicpkg.com/contact-us/
-  - type: Conformance
-    url: conformance/graphic-packaging-conformance.yml
-  - type: Compliance
-    url: conformance/graphic-packaging-conformance.yml
-  - type: Plans
-    url: plans/graphic-packaging-plans-pricing.yml
+- type: DomainSecurity
+  url: security/graphic-packaging-domain-security.yml
+- type: LinkedIn
+  url: https://www.linkedin.com/company/graphic-packaging-international
+- type: Website
+  url: https://www.graphicpkg.com/
+- type: Sustainability
+  url: https://www.graphicpkg.com/sustainability/
+- type: Investors
+  url: https://investors.graphicpkg.com/
+- type: Careers
+  url: https://www.graphicpkg.com/careers/
+- type: Rules
+  url: graphic-packaging-rules.yml
+- type: Blog
+  url: https://www.graphicpkg.com/feed/
+- type: Security
+  url: https://www.graphicpkg.com/disclosures-and-company-policies/vulnerability-disclosure-policy/
+- type: VulnerabilityDisclosure
+  url: security/graphic-packaging-vulnerability-disclosure.yml
+- type: TermsOfService
+  url: https://www.graphicpkg.com/terms-of-use/
+- type: PrivacyPolicy
+  url: https://www.graphicpkg.com/privacy-rights-policies/global-privacy/
+- type: Support
+  url: https://www.graphicpkg.com/contact-us/
+- type: Conformance
+  url: conformance/graphic-packaging-conformance.yml
+- type: Compliance
+  url: conformance/graphic-packaging-conformance.yml
+- type: Plans
+  url: plans/graphic-packaging-plans-pricing.yml
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com
 x-enrichment:
   date: '2026-09-12'
   status: enriched
@@ -146,20 +139,17 @@ x-enrichment:
 x-coverage:
   state: covered
   reason: covered
-  detail: >-
-    Graphic Packaging publishes no developer program, but this pass found real
-    published surfaces on its own hosts: a vulnerability disclosure policy page,
-    FSC/PEFC/RPA chain-of-custody certifications, and one unauthenticated JSON
-    job query API on careers.graphicpkg.com (229 live requisitions) that is
-    operated by the AppVault career-site platform rather than by Graphic
-    Packaging. Its four customer and supplier portals (ODS, ACES, GPI Fiber
-    Furnish Tracker, Esko WebCenter) are human login walls with no documented
-    programmatic access.
+  detail: 'Graphic Packaging publishes no developer program, but this pass found real published surfaces
+    on its own hosts: a vulnerability disclosure policy page, FSC/PEFC/RPA chain-of-custody certifications,
+    and one unauthenticated JSON job query API on careers.graphicpkg.com (229 live requisitions) that
+    is operated by the AppVault career-site platform rather than by Graphic Packaging. Its four customer
+    and supplier portals (ODS, ACES, GPI Fiber Furnish Tracker, Esko WebCenter) are human login walls
+    with no documented programmatic access.'
   evidence:
-    - url: https://careers.graphicpkg.com/api/mcp/jobs?tool=search_jobs
-      status: 200
-    - url: https://www.graphicpkg.com/disclosures-and-company-policies/vulnerability-disclosure-policy/
-      status: 200
-    - url: https://ods.graphicpkg.com/ods/Account/Login
-      status: 200
+  - url: https://careers.graphicpkg.com/api/mcp/jobs?tool=search_jobs
+    status: 200
+  - url: https://www.graphicpkg.com/disclosures-and-company-policies/vulnerability-disclosure-policy/
+    status: 200
+  - url: https://ods.graphicpkg.com/ods/Account/Login
+    status: 200
   checked: '2026-09-12'
