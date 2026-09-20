@@ -5,11 +5,11 @@
       "source": "http://www.graphicpkg.com/feed",
       "feed_url": "http://www.graphicpkg.com/feed",
       "title": "",
-      "saved": 1,
+      "saved": 0,
       "method": "feed"
     }
   ],
-  "fetched": "2026-09-13T12:41:53Z",
+  "fetched": "2026-09-19T19:51:11Z",
   "post_count": 22,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
