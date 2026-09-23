@@ -1,7 +1,9 @@
 ---
 title: Pomerantz LLP Brings Class Action Lawsuit Against ...
 url: https://natlawreview.com/press-releases/pomerantz-llp-brings-class-action-lawsuit-against-graphic-packaging-holding
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Graphic Packaging Holding" press release artificial intelligence'
 position: 4
 source: serpapi-google

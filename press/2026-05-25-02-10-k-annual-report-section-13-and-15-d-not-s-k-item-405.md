@@ -1,7 +1,9 @@
 ---
 title: '10-K: Annual report [Section 13 and 15(d), not S-K Item 405]'
 url: https://investors.graphicpkg.com/sec-filings/all-sec-filings/content/0001408075-26-000009/gpk-20251231.htm
-date: '2026-05-25'
+published: ''
+date_basis: harvested
+harvested: '2026-05-25'
 query: '"Graphic Packaging Holding" press release artificial intelligence'
 position: 2
 source: serpapi-google
