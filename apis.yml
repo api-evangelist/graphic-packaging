@@ -96,6 +96,8 @@ apis:
   - type: AgentSkill
     url: skills/_index.yml
 common:
+- type: RateLimits
+  url: rate-limits/graphic-packaging-rate-limits.yml
 - type: DomainSecurity
   url: security/graphic-packaging-domain-security.yml
 - type: LinkedIn
