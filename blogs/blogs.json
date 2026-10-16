@@ -2,6 +2,13 @@
   "repo": "graphic-packaging",
   "feeds": [
     {
+      "source": "https://www.graphicpkg.com/feed/",
+      "feed_url": "https://www.graphicpkg.com/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
       "source": "http://www.graphicpkg.com/feed",
       "feed_url": "http://www.graphicpkg.com/feed",
       "title": "",
@@ -9,7 +16,7 @@
       "method": "feed"
     }
   ],
-  "fetched": "2026-10-03T12:15:37Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 22,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
