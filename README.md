@@ -1,4 +1,4 @@
-# Graphic Packaging (graphic-packaging)
+# Graphic Packaging
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,38 +64,102 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Graphic Packaging International is a Fortune 500 global manufacturer of sustainable, paperboard-based consumer packaging. Products include folding cartons, multipack cartons, foodservice packaging, microwave and ovenable packaging, paperboard canisters, and packaging machinery. Markets served include food, beverage, foodservice, household, personal care, healthcare, pharmaceuticals, pet care, beauty, and e-commerce.
+Graphic Packaging International is a Fortune 500 global manufacturer of sustainable, paperboard-based consumer packaging. Products include folding cartons, multipack cartons, foodservice packaging (cups, lids, to-go containers), microwave and ovenable packaging, paperboard canisters, and packaging machinery. Markets served include food, beverage, foodservice, household, personal care, healthcare, pharmaceuticals, pet care, beauty, and e-commerce. Graphic Packaging publishes no developer program, no API reference and no machine-readable contract; its digital surfaces for customers and suppliers (ODS order data, ACES, GPI Fiber Furnish Tracker and the Esko WebCenter artwork portal) all sit behind logins. The one unauthenticated JSON surface on a graphicpkg.com host is the careers site job query API, which is a tenant of the AppVault career-site platform rather than a Graphic Packaging product.
 
-**APIs.yml:** [Visit APIs.yml URL](https://raw.githubusercontent.com/api-evangelist/graphic-packaging/refs/heads/main/apis.yml)
+**Areas:** Fortune 500 · Packaging · Paperboard · Sustainability · Manufacturing · Consumer Packaging · Food Service
 
-## Scope
+## Graphic Packaging on APIs.io
 
-- **Type:** Index
-- **Position:** Producer
-- **Access:** Restricted
+Everything profiled for Graphic Packaging is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/graphic-packaging/](https://apis.io/providers/graphic-packaging/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (1)
 
-Fortune 500, Packaging, Paperboard, Sustainability, Manufacturing, Consumer Packaging, Foodservice
+- [Graphic Packaging Career Site Job Query API](https://apis.io/apis/graphic-packaging/graphic-packaging-career-site-job-query-api/) — Read-only HTTP JSON API serving Graphic Packaging International's open job requisitions from careers.graphicpkg.com. Four tools — search_jobs, get_job,…
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-21
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Security (3)
 
-No public developer APIs have been documented for Graphic Packaging at this time. Customer, supplier, and partner integrations are handled through direct business relationships rather than a public developer portal. Contributions welcome if a public API surface is identified.
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Graphic Packaging Authentication](https://apis.io/security/graphic-packaging/graphic-packaging-authentication/)
+- [Graphic Packaging Domain Security](https://apis.io/security/graphic-packaging/graphic-packaging-domain-security/)
+- [Graphic Packaging Vulnerability Disclosure](https://apis.io/security/graphic-packaging/graphic-packaging-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Graphic Packaging Plans Pricing](https://apis.io/plans/graphic-packaging/graphic-packaging-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Graphic Packaging Rate Limits](https://apis.io/rate-limits/graphic-packaging/graphic-packaging-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.graphicpkg.com/)
-- [Sustainability](https://www.graphicpkg.com/sustainability/)
-- [Investors](https://investors.graphicpkg.com/)
-- [Careers](https://www.graphicpkg.com/careers/)
-- [Rules](graphic-packaging-rules.yml)
+- [Support](https://www.graphicpkg.com/contact-us/)
+- [Blog](https://www.graphicpkg.com/feed/)
+- [Security](https://www.graphicpkg.com/disclosures-and-company-policies/vulnerability-disclosure-policy/)
+- [Terms of service](https://www.graphicpkg.com/terms-of-use/)
+- [Privacy policy](https://www.graphicpkg.com/privacy-rights-policies/global-privacy/)
 
-## Maintainers
+## API Evangelist rating
 
-- **FN:** Kin Lane
-- **Email:** kin@apievangelist.com
+**Kin Score 23.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 30.4 |
+| Access clarity | 28.9 |
+
+**Agent readiness 8.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/graphic-packaging/](https://apis.io/providers/graphic-packaging/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Graphic Packaging: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/graphic-packaging/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
